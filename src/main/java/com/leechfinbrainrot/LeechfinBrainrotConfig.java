@@ -3,17 +3,22 @@ package com.leechfinbrainrot;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
+import net.runelite.client.config.Range;
 
 @ConfigGroup("leechfinbrainrot")
 public interface LeechfinBrainrotConfig extends Config
 {
-	@ConfigItem(
-		keyName = "greeting",
-		name = "Welcome Greeting",
-		description = "The message to show to the user when they login"
+	@Range(
+			max = 100,
+			min =  0
 	)
-	default String greeting()
+	@ConfigItem(
+			keyName = "volume",
+			name = "Volume",
+			description = "Sound volume (0-100)"
+	)
+	default int volume()
 	{
-		return "Hello";
+		return 100;
 	}
 }
